@@ -1,0 +1,27 @@
+{
+  "name": "nextjs-typescript-pokeapi-redux-axios",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.6",
+    "axios": "^1.5.1",
+    "bootstrap": "^5.3.2",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-redux": "^8.1.2",
+    "sass": "^1.68.0"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "latest"
+  }
+}
