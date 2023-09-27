@@ -16,7 +16,6 @@ export const fetchPokemon = createAsyncThunk(
     'pokemons/fetchPokemon',
     async (name: string) => {
         const { data } = await axios.get(`/${name}`)
-        console.log(data)
         return data;
     }
 )
@@ -55,13 +54,31 @@ export const pokemonsSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
+            .addCase(fetchPokemons.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
             .addCase(fetchPokemons.fulfilled, (state, action) => {
                 state.loading = false;
                 state.pokemons = action.payload;
+                state.error = null;
+            })
+            .addCase(fetchPokemons.rejected, (state, action) => {
+                state.loading = false;
+                state.error = "Pokemons could not be fetched.";
+            })
+            .addCase(fetchPokemon.pending, (state) => {
+                state.loading = true;
+                state.error = null;
             })
             .addCase(fetchPokemon.fulfilled, (state, action) => {
                 state.loading = false;
                 state.pokemon = action.payload;
+                state.error = null;
+            })
+            .addCase(fetchPokemon.rejected, (state, action) => {
+                state.loading = false;
+                state.error = "Pokemon could not be fetched.";
             });
     }
 })
